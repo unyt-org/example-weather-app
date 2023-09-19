@@ -1,0 +1,13 @@
+use stage from #public.uix;
+
+endpoint: stage {
+	prod: @+weather
+},
+
+location: stage {
+	prod: @+unyt_eu1
+},
+
+domain: stage {
+	prod: 'weather.example.unyt.org'
+}

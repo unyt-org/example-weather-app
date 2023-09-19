@@ -1,0 +1,60 @@
+:host {
+	&>div {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		overflow-y: scroll;
+		position: absolute;
+		height: 100%;
+		--color-1: #ff8080;
+		--color-2: #554afa;
+		background: linear-gradient(0deg, var(--color-1) 0%, var(--color-2));
+		&>.main {
+			max-width: 800px;
+			width: 100%;
+			margin: auto;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			grid-gap: 20px;
+			gap: 20px;
+			&>h1 {
+				color: white!important;
+			}
+			&>input {
+				border: 1px solid white;
+				color: white;
+				font-size: x-large;
+				padding: 20px;
+				border-radius: 10px;
+				width: 70%;
+				background-color: transparent;
+				&:focus {
+					outline: none;
+				}
+				&::placeholder {
+					color: rgba(255, 255, 255, 0.4);
+				}
+			}
+			&>div {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 20px;
+				width: 40%;
+				border-radius: 20px;
+				font-size: x-large;
+				border: 2px solid white;
+				background-color: white;
+				color: black;
+				transition: background-color 0.2s;
+				&:hover {
+					color: white;
+					background-color: transparent;
+				}
+			}
+		}
+
+	}
+}
