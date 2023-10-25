@@ -1,18 +1,19 @@
-import { UIX } from "uix";
+import { template } from "uix/html/template.ts";
+import { Component } from 'uix/components/Component.ts';
 
-@UIX.template(function(this: Search) {
+@template(function(this: Search) {
 	return <div>
 		<div class="main">
 			<h1>Search your city</h1>
 			<input id="location" type={"text"} placeholder={"Type your city"}/>
-			<div onclick={UIX.bindToDisplayContext(()=>this.search(), {this: this})}>Search</div>
+			<div onclick:frontend={() => this.search()}>Search</div>
 		</div>
 	</div>
 })
-export class Search extends UIX.BaseComponent {
-	@standalone @id declare private location: HTMLInputElement;
+export class Search extends Component {
+	@frontend @id declare private location: HTMLInputElement;
 	
-	@standalone
+	@frontend
 	private search() {
 		if (this.location.value.trim())
 			window.location.href = `/${encodeURIComponent(this.location.value.trim())}`

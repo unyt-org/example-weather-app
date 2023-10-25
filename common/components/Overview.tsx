@@ -1,11 +1,12 @@
-import { UIX, IEL } from "uix";
-import { Weather } from "backend/entrypoint.tsx";
+import { Weather } from "../../backend/entrypoint.tsx";
+import { Component } from "uix/components/Component.ts";
 import { Path } from "uix/utils/path.ts";
+import { template } from "uix/html/template.ts";
 
-@UIX.template(function(this: Overview) {
+@template(function(this: Overview) {
 	const weather = this.options.weather;
 	return <div>
-		<a class="back" href="/">{IEL`fa-chevron-left`} Back</a>
+		<a class="back" href="/"><span class="fa fa-chevron-left"/> Back</a>
 		<div class="main">
 			<h3>
 				{weather.location.name}
@@ -34,7 +35,7 @@ import { Path } from "uix/utils/path.ts";
 				}
 			</div>
 			<div class="air-quality">
-				<h4>{IEL`fa-solid fa-globe`} Air Quality</h4>
+				<h4><span class="fa fa-solid fa-globe"/> Air Quality</h4>
 				<h1>{
 					(
 						["Good", "Moderate", "Maybe unhealthy", "Unhealthy", "Very Unhealthy", "Hazardous"][weather.current.air]
@@ -46,12 +47,12 @@ import { Path } from "uix/utils/path.ts";
 			<h2 class="header">Information</h2>
 			<div class="additional">
 				<div>
-					<h3>{IEL`fa-sun`} Sunrise</h3>
+					<h3><span class="fa fa-sun"/> Sunrise</h3>
 					<h2>{weather.current.sunrise}</h2>
 					<span>Sunset: <a>{weather.current.sunset}</a></span>
 				</div>
 				<div>
-					<h3>{IEL`fa-filter`} UV-Index</h3>
+					<h3><span class="fa fa-filter"/> UV-Index</h3>
 					<h2>{weather.current.uv}</h2>
 					<span>{weather.current.isDay ? "Day" : "Night"}</span>
 				</div>
@@ -60,7 +61,7 @@ import { Path } from "uix/utils/path.ts";
 		<a href="https://www.weatherapi.com/" title="Free Weather API">Powered by WeatherAPI.com</a>
 	</div>
 })
-export class Overview extends UIX.BaseComponent<UIX.BaseComponent.Options & {weather: Weather}> {
+export class Overview extends Component<Component.Options & {weather: Weather}> {
 	
 	// Life-cycle method that is called when the component is displayed
 	protected override onDisplay() {

@@ -1,9 +1,12 @@
 // deno-lint-ignore-file no-explicit-any
 import { Logger } from "unyt_core/utils/logger.ts";
-import { UIX } from "uix/uix.ts";
 import { Datex } from "unyt_core/datex.ts";
-import { Overview } from 'common/components/Overview.tsx';
-import { Search } from "common/components/Search.tsx";
+import { Overview } from '../common/components/Overview.tsx';
+import { Search } from "../common/components/Search.tsx";
+import { renderStatic } from "uix/base/render-methods.ts";
+import { Entrypoint } from "uix/html/entrypoints.ts";
+import { provideError } from "uix/html/entrypoint-providers.tsx";
+
 const logger = new Logger("Weather");
 
 export type Weather = {
@@ -71,17 +74,17 @@ const getWeather = async (location: string) => {
 }
 
 export default {
-	'/': UIX.renderStatic(<Search/>),
+	'/': renderStatic(<Search/>),
 	'/:location': async (_, { location }) => {
 		location = decodeURIComponent(location);
 		logger.info("Requesting weather info for", location);
 		try {
 			const weather = await getWeather(location);
 			logger.success("Got weather info for", location, weather.current);
-			return UIX.renderStatic(<Overview weather={weather}/>);
+			return renderStatic(<Overview weather={weather}/>);
 		} catch (error: unknown | Error) {
 			console.error(error);
-			return UIX.provideError(`<h2>Could not get weather for '${decodeURIComponent(location).replace(/[^a-zA-Za-zA-ZÄÖÜäöüß\- ]/, '')}'!</h2><br><small>${error}</small>`);
+			return provideError(`<h2>Could not get weather for '${decodeURIComponent(location).replace(/[^a-zA-Za-zA-ZÄÖÜäöüß\- ]/, '')}'!</h2><br><small>${error}</small>`);
 		}
 	}
-} satisfies UIX.Entrypoint;
+} satisfies Entrypoint;
