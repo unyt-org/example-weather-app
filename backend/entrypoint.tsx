@@ -3,9 +3,10 @@ import { Logger } from "unyt_core/utils/logger.ts";
 import { Datex } from "unyt_core/datex.ts";
 import { Overview } from '../common/components/Overview.tsx';
 import { Search } from "../common/components/Search.tsx";
-import { renderStatic } from "uix/base/render-methods.ts";
+import { renderBackend, renderStatic } from "uix/base/render-methods.ts";
 import { Entrypoint } from "uix/html/entrypoints.ts";
-import { provideError } from "uix/html/entrypoint-providers.tsx";
+
+import "common/theme.tsx";
 
 const logger = new Logger("Weather");
 
@@ -77,7 +78,7 @@ const getWeather = async (location: string) => {
 }
 
 export default {
-	'/': renderStatic(<Search/>),
+	'/': renderBackend(<Search/>),
 	'/:location': async (_, { location }) => {
 		location = decodeURIComponent(location);
 		logger.info("Requesting weather info for", location);
@@ -85,9 +86,12 @@ export default {
 			const weather = await getWeather(location);
 			logger.success("Got weather info for", location, weather.current);
 			return renderStatic(<Overview weather={weather}/>);
-		} catch (error: unknown | Error) {
+		} catch (error) {
 			console.error(error);
-			return provideError(`<h2>Could not get weather for '${decodeURIComponent(location).replace(/[^a-zA-Za-zA-ZÄÖÜäöüß\- ]/, '')}'!</h2><br><small>${error}</small>`);
+			throw <>
+				<h1>Could not get weather for '{decodeURIComponent(location).replace(/[^a-zA-Za-zA-ZÄÖÜäöüß\- ]/, '')}'!</h1>
+				<span>{error}</span>
+			</>;
 		}
 	}
 } satisfies Entrypoint;

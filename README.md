@@ -37,6 +37,8 @@ Since everything is rendered on the server there is just a [back-end](https://un
     │   │   ├── Search.tsx      // Search component
     │   │   ├── Overview.scss   // Overview style declaration
     │   │   └── Overview.tsx    // Overview component
+    │   ├── theme.tsx           // Theme definition
+    │   ├── weather-theme.scss  // Theme stylesheet
     │   └── res/                // Ressources folder
     ├── app.dx                  // Endpoint config file
     └── deno.json               // Deno config file

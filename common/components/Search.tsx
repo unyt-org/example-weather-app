@@ -6,7 +6,7 @@ import { Component } from 'uix/components/Component.ts';
 		<div class="main">
 			<h1>Search your city</h1>
 			<input id="location" type={"text"} placeholder={"Type your city"}/>
-			<div onclick:frontend={() => this.search()}>Search</div>
+			<div onclick:frontend={() => use("no-datex", this) && this.search()}>Search</div>
 		</div>
 	</div>
 })

@@ -9,21 +9,8 @@
 		display: flex;
 		flex-direction: column;
 		width: 100%;
-		overflow-y: scroll;
 		position: absolute;
-		height: 100%;
-		--color-1: #ff8080;
-		--color-2: #554afa;
 		background: linear-gradient(0deg, var(--color-1) 0%, var(--color-2));
-		h1,h2,h3,h4,a {
-			font-weight: normal!important;
-			color: white;
-			margin: 0;
-		}
-		span {
-			opacity: 0.8;
-			color: white;
-		}
 		&>.main {
 			display: flex;
 			max-width: 500px;
