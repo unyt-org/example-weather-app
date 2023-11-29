@@ -7,6 +7,9 @@
         "uix": "https://cdn.unyt.org/uix@0.1.x/uix.ts",
         "uix/": "https://cdn.unyt.org/uix@0.1.x/src/",
         "uix/jsx-runtime": "https://cdn.unyt.org/uix@0.1.x/src/jsx-runtime/jsx.ts",
-        "unyt-tests/": "https://cdn.unyt.org/unyt_tests/"
+        "unyt-tests/": "https://cdn.unyt.org/unyt_tests/",
+        "backend/": "./backend/",
+        "common/": "./common/",
+        "frontend/": "./frontend/"
     }
 }
