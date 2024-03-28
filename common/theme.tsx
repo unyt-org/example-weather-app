@@ -8,7 +8,8 @@ UIX.Theme.registerTheme(UIX.Theme.extend(uixDarkPlain, {
 		"accent": "white",
 		"color-1": "#ff8080",
 		"color-2": "#554afa"
-	}
+	},
+	stylesheets: ["example-theme.scss"]
 }));
 UIX.Theme.registerTheme(UIX.Theme.extend(uixLightPlain, {
 	name: "example-light",
@@ -16,7 +17,8 @@ UIX.Theme.registerTheme(UIX.Theme.extend(uixLightPlain, {
 		"accent": "white",
 		"color-1": "#ff8080",
 		"color-2": "#554afa"
-	}
+	},
+	stylesheets: ["example-theme.scss"]
 }));
 
 UIX.Theme.useThemes("example-light", "example-dark");

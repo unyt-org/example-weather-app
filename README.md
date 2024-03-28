@@ -30,6 +30,7 @@ Since everything is rendered on the server there is just a [back-end](https://un
 └── example-weather-app/
     ├── backend/
     │   ├── .dx                 // Config file for deployment
+    │   ├── Weather.ts          // Weather API
     │   └── entrypoint.tsx      // Back-end entrypoint
     ├── common/
     │   ├── compoments/
