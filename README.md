@@ -33,7 +33,7 @@ Since everything is rendered on the server there is just a [back-end](https://un
     │   ├── Weather.ts          // Weather API
     │   └── entrypoint.tsx      // Back-end entrypoint
     ├── common/
-    │   ├── compoments/
+    │   ├── components/
     │   │   ├── Search.scss     // Search style declaration
     │   │   ├── Search.tsx      // Search component
     │   │   ├── Overview.scss   // Overview style declaration
