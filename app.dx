@@ -7,7 +7,7 @@ plugin git_deploy (
 		branch: '*',
 		test: false,
 		secrets: [
-			'API_TOKEN'
+			'API_TOKEN' // Passing the API_TOKEN to deployed container
 		]
 	)
 )

@@ -1,9 +1,9 @@
-import { Weather } from "../../backend/entrypoint.tsx";
+import { type Weather } from "backend/Weather.ts";
 import { Component } from "uix/components/Component.ts";
 import { Path } from "uix/utils/path.ts";
 import { template } from "uix/html/template.ts";
 
-@template(function(this: Overview) {
+@template(function(this) {
 	const weather = this.options.weather;
 	return <div>
 		<a class="back" href="/"><span class="fa fa-chevron-left"/> Back</a>
@@ -61,7 +61,13 @@ import { template } from "uix/html/template.ts";
 		<a href="https://www.weatherapi.com/" title="Free Weather API">Powered by WeatherAPI.com</a>
 	</div>
 })
-export class Overview extends Component<Component.Options & {weather: Weather}> {
+
+// To access the options field in frontend
+// we need to pass the field to the inheritedFields
+@standalone({
+	inheritedFields: ["options"]
+})
+export class Overview extends Component<{weather: Weather}> {
 	
 	// Life-cycle method that is called when the component is displayed
 	protected override onDisplay() {

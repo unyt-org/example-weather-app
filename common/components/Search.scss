@@ -1,4 +1,5 @@
 :host {
+	font-family: var(--sans-font);
 	&>div {
 		display: flex;
 		flex-direction: column;
@@ -41,6 +42,7 @@
 				align-items: center;
 				padding: 20px;
 				width: 40%;
+				cursor: pointer;
 				border-radius: 20px;
 				font-size: x-large;
 				border: 2px solid white;

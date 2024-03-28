@@ -1,4 +1,8 @@
 :host {
+	font-family: var(--sans-font);
+	* {
+		color: var(--accent);
+	}
 	&>div {
 		.back {
 			text-align: left;

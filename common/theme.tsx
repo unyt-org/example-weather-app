@@ -3,7 +3,7 @@ import { uixLightPlain } from "uix/themes/uix-light-plain.ts";
 import { uixDarkPlain } from "uix/themes/uix-dark-plain.ts";
 
 UIX.Theme.registerTheme(UIX.Theme.extend(uixDarkPlain, {
-	name: "unyt-dark",
+	name: "example-dark",
 	values: {
 		"accent": "white",
 		"color-1": "#ff8080",
@@ -11,7 +11,7 @@ UIX.Theme.registerTheme(UIX.Theme.extend(uixDarkPlain, {
 	}
 }));
 UIX.Theme.registerTheme(UIX.Theme.extend(uixLightPlain, {
-	name: "unyt-light",
+	name: "example-light",
 	values: {
 		"accent": "white",
 		"color-1": "#ff8080",
@@ -19,4 +19,4 @@ UIX.Theme.registerTheme(UIX.Theme.extend(uixLightPlain, {
 	}
 }));
 
-UIX.Theme.useThemes("unyt-light", "unyt-dark");
+UIX.Theme.useThemes("example-light", "example-dark");
