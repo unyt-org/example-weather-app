@@ -59,4 +59,4 @@ In [DATEX](https://datex.unyt.org), environment variables can be accessed using 
 
 ---
 
-<sub>&copy; unyt 2023 • [unyt.org](https://unyt.org)</sub>
+<sub>&copy; unyt 2024 • [unyt.org](https://unyt.org)</sub>
