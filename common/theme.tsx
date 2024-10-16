@@ -9,7 +9,7 @@ UIX.Theme.registerTheme(UIX.Theme.extend(uixDarkPlain, {
 		"color-1": "#ff8080",
 		"color-2": "#554afa"
 	},
-	stylesheets: ["example-theme.scss"]
+	stylesheets: ["example-theme.css"]
 }));
 UIX.Theme.registerTheme(UIX.Theme.extend(uixLightPlain, {
 	name: "example-light",
@@ -18,7 +18,7 @@ UIX.Theme.registerTheme(UIX.Theme.extend(uixLightPlain, {
 		"color-1": "#ff8080",
 		"color-2": "#554afa"
 	},
-	stylesheets: ["example-theme.scss"]
+	stylesheets: ["example-theme.css"]
 }));
 
 UIX.Theme.useThemes("example-light", "example-dark");

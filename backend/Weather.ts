@@ -1,4 +1,4 @@
-import { type Datex } from "unyt_core/datex.ts";
+import { type Datex } from "datex-core-legacy/datex.ts";
 
 export type Weather = {
 	location: {

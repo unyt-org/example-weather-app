@@ -1,9 +1,9 @@
-import { Logger } from "unyt_core/utils/logger.ts";
-import { Datex } from "unyt_core/datex.ts";
-import { Overview } from '../common/components/Overview.tsx';
-import { Search } from "../common/components/Search.tsx";
+import { Logger } from "datex-core-legacy/utils/logger.ts";
+import { Datex } from "datex-core-legacy/datex.ts";
+import { Overview } from 'common/components/Overview.tsx';
+import { Search } from "common/components/Search.tsx";
 import { renderBackend } from "uix/base/render-methods.ts";
-import { Entrypoint } from "uix/html/entrypoints.ts";
+import { type Entrypoint } from "uix/providers/entrypoints.ts";
 import { getWeather } from "backend/Weather.ts";
 import "common/theme.tsx";
 
@@ -37,7 +37,7 @@ export default {
 			logger.error(error);
 			throw <>
 				<h1>Could not get weather for '{decodeURIComponent(location).replace(/[^a-zA-Za-zA-ZÄÖÜäöüß\- ]/, '')}'!</h1>
-				<span>{error}</span>
+				<span>{String(error)}</span>
 			</>;
 		}
 	}
