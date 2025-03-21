@@ -1,6 +1,6 @@
 import { Logger } from "datex-core-legacy/utils/logger.ts";
 import { Datex } from "datex-core-legacy/datex.ts";
-import { Overview } from 'common/components/Overview.tsx';
+import { Overview } from "common/components/Overview.tsx";
 import { Search } from "common/components/Search.tsx";
 import { renderBackend } from "uix/base/render-methods.ts";
 import { type Entrypoint } from "uix/providers/entrypoints.ts";
@@ -16,29 +16,35 @@ logger.info("Using API key", API_KEY);
  * Route definition for backend routes
  */
 export default {
-	
-	// The page at / returns a backend rendered search component
-	'/': renderBackend(<Search/>),
+  // The page at / returns a backend rendered search component
+  "/": renderBackend(<Search />),
 
-	// The :param syntax can be used to get dynamic route
-	// parameters such as the location
-	'/:location': async (_, { location }) => {
-		location = decodeURIComponent(location);
-		logger.info("Requesting weather info for", location);
-		try {
-			// Requesting API to return weather object
-			const weather = await getWeather(location, API_KEY);
-			logger.success("Got weather info for", location, weather.current);
+  // The :param syntax can be used to get dynamic route
+  // parameters such as the location
+  "/:location": async (_, { location }) => {
+    location = decodeURIComponent(location);
+    logger.info("Requesting weather info for", location);
+    try {
+      // Requesting API to return weather object
+      const weather = await getWeather(location, API_KEY);
+      logger.success("Got weather info for", location, weather.current);
 
-			// Pass the weather data to the overview component
-			// and perform backend rendering
-			return renderBackend(<Overview weather={weather}/>);
-		} catch (error) {
-			logger.error(error);
-			throw <>
-				<h1>Could not get weather for '{decodeURIComponent(location).replace(/[^a-zA-Za-zA-ZÄÖÜäöüß\- ]/, '')}'!</h1>
-				<span>{String(error)}</span>
-			</>;
-		}
-	}
+      // Pass the weather data to the overview component
+      // and perform backend rendering
+      return renderBackend(<Overview weather={weather} />);
+    } catch (error) {
+      logger.error(error);
+      throw (
+        <>
+          <h1>
+            Could not get weather for '{decodeURIComponent(location).replace(
+              /[^a-zA-Za-zA-ZÄÖÜäöüß\- ]/,
+              "",
+            )}'!
+          </h1>
+          <span>{String(error)}</span>
+        </>
+      );
+    }
+  },
 } satisfies Entrypoint;
