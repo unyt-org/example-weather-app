@@ -4,7 +4,7 @@ import { Path } from "uix/utils/path.ts";
 import { template } from "uix/html/template.ts";
 
 @template(function (this) {
-  const weather = this.options.weather;
+  const weather = this.properties.weather;
   return (
     <div>
       <a class="back" href="/">
@@ -94,6 +94,6 @@ import { template } from "uix/html/template.ts";
 export class Overview extends Component<{ weather: Weather }> {
   // Life-cycle method that is called when the component is displayed
   protected override onDisplay() {
-    console.info("The chats pointer", this.options.weather);
+    console.info("The chats pointer", this.properties.weather);
   }
 }
